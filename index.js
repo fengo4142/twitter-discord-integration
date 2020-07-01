@@ -123,9 +123,11 @@ client.on("message", (msg) => {
   }
 });
 
+let userIds = []
+const T = new Twit(config.AccountKeys[0]);
+
 const sendMonitoring = (resolve, reject, hook) => {
   try {
-    const T = new Twit(config.AccountKeys[0]);
     T.get(
       "users/show",
       { screen_name: accountToMonitor, include_entities: true },
@@ -134,9 +136,12 @@ const sendMonitoring = (resolve, reject, hook) => {
           reject(err);
         }
         if (response) {
-          hook(response);
+          userIds.push(response.id_str)
+          //hook(response);
         }
-        resolve();
+        if (userIds.length === config.AccountKeys.length) {
+          resolve();
+        }
       }
     );
   } catch (err) {
@@ -148,6 +153,7 @@ const sendMonitoring = (resolve, reject, hook) => {
 const followAccount = (keys, resolve, reject, k) => {
   try {
     const T = new Twit(keys);
+
     T.post(
       "friendships/create",
       { screen_name: accountToMonitor },
@@ -159,9 +165,8 @@ const followAccount = (keys, resolve, reject, k) => {
         resolve();
       }
     );
-    if (k === 0) {
+    if (k === 0)
       sendMonitoring(resolve, reject, discordHook.sendMonitor);
-    }
   } catch (err) {
     log.red("followacc index");
     log.red(err);
@@ -207,101 +212,61 @@ const sendHook = (data) => {
   }
 };
 
-const getTweet = async (keys, hypeMode) => {
-  try {
-    const T = new Twit({ ...keys, timeout_ms: timeout });
-    if (wait === false && accountToMonitor.length !== 0) {
-      T.get(
-        "statuses/user_timeline",
-        lastTweet === 0
-          ? {
-              screen_name: accountToMonitor,
-              count: 100,
-              exclude_replies: true,
-              include_rts: false,
-              tweet_mode: "extended",
-            }
-          : {
-              screen_name: accountToMonitor,
-              count: 100,
-              exclude_replies: true,
-              include_rts: false,
-              since_id: lastTweet,
-              tweet_mode: "extended",
-            },
-        (err, data, response) => {
-          if (err) {
-            // console.log("ERROR in get tweets !");
-            // console.log("maybe timeout ?");
-            // console.log(JSON.stringify(err));
-          }
-          sendHook(data);
+
+const monitor = async () => {
+  // Initializing Twitter Stream
+  console.log("", userIds)
+  let stream = T.stream("statuses/filter", { follow: userIds });
+
+  // Stream Connect Event
+  stream.on("connect", request => {
+    log.cyan("Attempting to Connect to Twitter API");
+  });
+
+  // Stream Connected Event
+  stream.on("connected", res => {
+    log.cyan(
+      `Monitor Connected to Twitter API. Monitoring ${
+        config.Twitter.Keys.length
+      } profiles.`
+    );
+  });
+
+  // Stream Tweet Event
+  stream.on("tweet", tweet => {
+    // Looping through all userIds
+    if (userIds.includes(tweet.user.id_str)) {
+      // Tweet Reply?
+      if (!isReply(tweet) === true) {
+        log.green("New Tweet");
+        sendHook(tweet);
+
+        // Checking for Image - OCR
+        if (tweet.entities.media) {
+          ocr.getImageText(tweet, tweet.entities.media[0].media_url);
         }
-      );
+      } else {
+        log.red("Bad Tweet");
+      }
     }
-    if (hypeMode) {
-      return new Promise(() => {
-        return;
-      });
-    }
-  } catch (err) {
-    log.red("get tweet");
-    log.red(err);
-  }
+  });
+
+  // Stream Warning Event
+  stream.on("warning", warning => {
+    log.yellow(`Monitor Received Warning from Twitter API 
+    Warning Message: ${warning}`);
+  });
+
+  // Stream Disconnect Event
+  stream.on("disconnect", disconnectMessage => {
+    log.red(`Monitor Disconnected from Twitter API Stream 
+    Error Message: ${disconnectMessage}`);
+  });
 };
 
-const infiniteLoop = async (i) => {
-  try {
-    if (hype) {
-      const stop = config.Twitter.Keys.length / 2;
-      setTimeout(async () => {
-        const promisesAll = config.Twitter.Keys.map((key, k) => {
-          if (k < stop) {
-            getTweet(key, true);
-          } else {
-            return new Promise(() => {
-              return;
-            });
-          }
-        });
-        Promise.all(promisesAll);
-      }, mode / 2);
-      setTimeout(async () => {
-        const promisesAllTwo = config.Twitter.Keys.map((key, k) => {
-          if (k >= stop) {
-            getTweet(key, true);
-          } else {
-            return new Promise(() => {
-              return;
-            });
-          }
-        });
-        Promise.all(promisesAllTwo);
-        await infiniteLoop(i);
-      }, mode / 2);
-    } else {
-      setTimeout(async () => {
-        await getTweet(config.Twitter.Keys[i], false);
-        i += 1;
-        if (i >= config.Twitter.Keys.length) {
-          i = 0;
-        }
-        await infiniteLoop(i);
-      }, mode);
-    }
-  } catch (err) {
-    console.log("Infinite Loop");
-    console.log(err);
-  }
-};
+init().then(
+  setTimeout(() => {
+    monitor()
+  }, 3000)
+);
 
-init().then(async () => {
-  try {
-    client.login("NzI3ODUxNDczNDY3MzQyODUw.Xvx2hw.Zp6g3njM9tXjzMlfsD7kctIBhug");
-    
-    await infiniteLoop(0);
-  } catch (err) {
-    console.log("init.then");
-    console.log(err);
-  }
-});
