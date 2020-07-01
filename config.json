@@ -1,0 +1,120 @@
+{
+  "Discord": {
+    "webhook": "https://discordapp.com/api/webhooks/727855303084736512/v_8L573xYYlHl1BNYGcsX9dKYcXQ_Cd7F--qefVS1ABh9sHWelp97nawy0P44Y4A5L0D"
+  },
+  "AccountKeys": [
+    {
+      "consumer_key": "67W3xP4O85VUurZpMUy12mzY8",
+      "consumer_secret": "ohjbnM2b6M2yKIXq78XOJQiEbTkVOkCo2wlvwbAGOVcDq9NOSs",
+      "access_token": "862301419046658048-e49IlOvw7KMR3eGl78NZPfG0Zqz3nlR",
+      "access_token_secret": "51jeTZ1qUOw69bBIl3Hy6vwV6hXzug0duXlEjkb8Qjzsp"
+    },
+    {
+      "consumer_key": "zzjNh8De60LjkkSYenPOfcosY",
+      "consumer_secret": "oKF7iND3i8r03WE9MceAhCD7IjgOSl2Ttp7wchBW251S7jh8Gw",
+      "access_token": "341961895-E0W92Vuhb7KumJWG9NsfhjHBqr2nYrpHOWBzG9wl",
+      "access_token_secret": "xUjPi85V2EdbbJt1CdXHe2KpXOKWy5s5YtaeesDBLLE2u"
+    },
+    {
+      "consumer_key": "NH3TMd1YPvt3JqOs5m4kERC46",
+      "consumer_secret": "KtdlqQtst8BzrPLHnuLAd5hd4LnNW3vQgk7hbFS7fDfCaSlY4C",
+      "access_token": "1239689158450429952-hGC8phkXcZuIRAZ8yalN8zCJdLoDjL",
+      "access_token_secret": "cGNyoWFK8otVrGN1WQtPWOgSmizVWYM1oszR1hhubo1n7"
+    }
+  ],
+  "Twitter": {
+    "Keys": [
+      {
+        "consumer_key": "862301419046658048-ijB8CrfqERn5YfleanA1n8olqAmcDeg",
+        "consumer_secret": "IELTEifS1K3OLrYzyYjmrfDrrnrKN50bGIRA2wUbJ3kKX",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "862301419046658048-xvlXvp9vlXnbzdIlVXaWgDQQzpHHV5r",
+        "consumer_secret": "1WAW1p9UUVvJYX9igwfiyLMzO92veu9gsEAQvOdvbijUY",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "862301419046658048-TdWHuKT6GjcVRUPL63ZrzFyFCQebymc",
+        "consumer_secret": "b8YesTaypslc0hmkTxDzzGtfMr9CiGgAytQL07CC4M12F",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "862301419046658048-D3bdI4qmArW72w26ssSD6EYTRs5yqkz",
+        "consumer_secret": "uREQH2d2ZS7IfwSrGOMTJMwg9s3EkhjpVpGAgnQqjzN0R",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "862301419046658048-5zyaXWBBw4tk2opGP3ZRu8jfzypFqiy",
+        "consumer_secret": "9Zyx3BLDbE8GnBEDCx7T9r1e54xlRWBjnBL11EfOXi5Mw",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "862301419046658048-SiEt98OJgS1hWZgGXQS6mHIvvhqvFtP",
+        "consumer_secret": "xRcUC3eG8FGwin6SBoaYEXTqXizP7gCPt4BfRWuCiOUSz",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "862301419046658048-ePtWTYY8Crca9alb7UbJHXgcKqtJ1dc",
+        "consumer_secret": "ifsHAskSiNS6uDxBy7qQ1IIwHmuePo5nmad9NTJtyOsid",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "862301419046658048-7PHuLoeJF3BvlFALa1KrcBLubS0uZfe",
+        "consumer_secret": "EvwL2ztWj2T3Zj1fSvsBQ51F0iQNQbfwssrc8vLTlD9GK",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "341961895-5IhjQbjx7FLc7bfdgYWCNMpUV8kwK9ARfb5iV18V",
+        "consumer_secret": "HcJaZApCEzRdVJoinFLbiMbxkUdmHGfWHyWUECbLOTKa1",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-WTzgnLzMx2z50K13Runb8aguY5KvJU",
+        "consumer_secret": "AvDV9xOHM0nn579NcCumIMtIHRDvCyBHIXjsIzo17FZZ2",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-4QtiU8PKKt8spHoDRwaU2S5DpPip7O",
+        "consumer_secret": "pQXmdsjdmDwiTGGKehSZCN6ws156XTvoSWMnABk6qL0CT",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-FiWHGccx1m8PZ25Ove0DcqGnVopn29",
+        "consumer_secret": "6wcKgyKlphzoTlHx5gjC9qE7XpxQM2oAlhxRzgnrNog26",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-dXuUp9CCDs9IvNT6jHsgEiGOzMUWXI",
+        "consumer_secret": "LVpYr0JrXf1c6tJFRlcMg0iEaEGBUCeuzKHTJW7a9J6Hc",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-mFCfR5S0EztxxkDPCCY0dqVV5DwEZ1",
+        "consumer_secret": "fUzla5UVg8MUnm42FXO9EhQ4oFpPrXFqkuctXKonTNSwo",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-w5RUJppFfnbq7UQ7aGhiIZHcZVJrCv",
+        "consumer_secret": "oLWf9oMDxDPVwcIO4qItpKDSR3EJPSj0j0xyMjv5n9eIp",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-T3EpNjWgthBKTrSwNGmySqSAnR3O5G",
+        "consumer_secret": "Ga11y5Bt4zsDufddaqTQQSnwg9CtsS0eSQnfVQqE4Gt9H",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-JZZWrx1LWNWd1ZOU24cNlJRI6fgmsg",
+        "consumer_secret": "FxDA4nPINtzRNYBHIV1cZba7ABqaq6sswRTyF0C0B5Vqg",
+        "app_only_auth": true
+      },
+      {
+        "consumer_key": "1239689158450429952-WZHfKJuyFRmC8HNSVXK1D0SXwlpx9v",
+        "consumer_secret": "1QD8zk8u5DPfpcuIhk9BuTjLPYjw8fovhwuy7v76z6IeK",
+        "app_only_auth": true
+      }
+    ],
+    "Account": "GeminiW1ll"
+  }
+}
